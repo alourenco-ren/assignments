@@ -2,7 +2,7 @@
 Module docstring
 '''
 import pandas as pd
-import click 
+import click
 
 def clean_data(country: str):
     '''
@@ -38,8 +38,9 @@ def clean_data(country: str):
 
 @click.command()
 @click.option("--country", "-c", default="PT", help="Country to filter the results by")
-def cli(country):
+def cli(country: str):
+    '''Deals with command line arguments'''
     clean_data(country)
 
 if __name__ == "__main__":  # pragma: no cover
-    cli()
+    cli()   # pylint: disable=no-value-for-parameter
