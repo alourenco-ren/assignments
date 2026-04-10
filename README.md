@@ -1,3 +1,6 @@
+[![Python CI](https://github.com/alourenco-ren/assignments/actions/workflows/ci.yml/badge.svg)](https://github.com/alourenco-ren/assignments/actions/workflows/ci.yml)
+
+
 # Foundations Learning Path Assignments
 
 ## Introduction
