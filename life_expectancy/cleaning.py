@@ -29,11 +29,13 @@ def clean_data(data: pd.DataFrame, country: str) -> pd.DataFrame:
     data[['unit', 'sex', 'age', 'region']] = data['info'].str.split(",", expand=True)
     data = data.drop('info', axis=1)
 
-    #Cleans the numeric data and filters by {country}
+    #Cleans the numeric data
     data['year'] = pd.to_numeric(data['year'], errors="coerce").astype("Int64")
+    #regex selects all non numeric characters that are replaced with an empty string
     data['value'] = data['value'].str.replace(r"[^0-9.\-]", "", regex=True)
     data['value'] = pd.to_numeric(data['value'], errors="coerce")
     data = data.dropna(subset=['value'])
+    #Filters by {country}
     if country:
         data = data[data['region'] == country]
 
