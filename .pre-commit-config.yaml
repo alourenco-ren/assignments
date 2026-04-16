@@ -1,0 +1,31 @@
+repos:
+  # Basic hygiene checks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-merge-conflict
+
+  # Static analysis with pylint
+  - repo: https://github.com/PyCQA/pylint
+    rev: v3.1.0
+    hooks:
+      - id: pylint
+        args:
+          - "--disable=import-error" #"--disable=C0114,C0115,C0116"  # disable missing docstring warnings (example)
+        additional_dependencies:
+          - pylint
+
+  # Run tests with pytest
+#  - repo: local
+#    hooks:
+#      - id: pytest
+#        name: Run pytest
+#        entry: pytest
+#        language: python
+#        additional_dependencies:
+#          - pytest
+#        pass_filenames: false
+#        always_run: true
